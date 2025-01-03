@@ -19,3 +19,7 @@ it("should return a sum of integers separeted by new line", () => {
 it("should return a sum of delimiter seperated integer values", () => {
     expect(StringCalculator.add("//;\n1;2;3;4")).toBe(10)
 })
+
+it("should return an error if negative numbers are provided", () => {
+    expect(() => StringCalculator.add("-1,-2,-3")).toThrow("negative numbers not allowed -1,-2,-3");
+})

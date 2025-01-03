@@ -2,6 +2,7 @@ class StringCalculator {
     add(inputString:string): number {
         if(!inputString.length) return 0;
         let sum: number = 0;
+        const negativeNumbers: number[] = [];
 
         if(inputString.includes("\n")) 
             inputString = inputString.replace("\n", ",");
@@ -14,10 +15,14 @@ class StringCalculator {
         const numbers: number[] = inputString.split(",").map(number => parseInt(number));
 
         for(let n of numbers) {
+            if(n < 0) {
+                negativeNumbers.push(n);
+            }
             sum += n;
         }
+        if(negativeNumbers.length) 
+            throw new Error(`negative numbers not allowed ${negativeNumbers.join(",")}`);
         return sum;
-
     }
 }
 
