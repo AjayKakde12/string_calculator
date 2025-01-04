@@ -15,13 +15,15 @@ class StringCalculator {
         const numbers: number[] = inputString.split(",").map(number => parseInt(number));
 
         for(let n of numbers) {
-            if(n < 0) {
-                negativeNumbers.push(n);
-            }
+            if(n > 1000) continue;
+
+            if(n < 0) negativeNumbers.push(n);
+
             sum += n;
         }
         if(negativeNumbers.length) 
             throw new Error(`negative numbers not allowed ${negativeNumbers.join(",")}`);
+
         return sum;
     }
 }

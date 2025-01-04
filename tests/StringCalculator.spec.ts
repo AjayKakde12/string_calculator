@@ -23,3 +23,7 @@ it("should return a sum of delimiter seperated integer values", () => {
 it("should return an error if negative numbers are provided", () => {
     expect(() => StringCalculator.add("-1,-2,-3")).toThrow("negative numbers not allowed -1,-2,-3");
 })
+
+it("should ignore values greater than 1000 and return some of rest", () => {
+    expect(StringCalculator.add("1001, 1002, 2, 3")).toBe(5);
+})
